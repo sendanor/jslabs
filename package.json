@@ -1,0 +1,19 @@
+{
+  "name": "jslabs",
+  "version": "0.0.1",
+  "description": "jslabs ======",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sendanor/jslabs.git"
+  },
+  "author": "Jaakko-Heikki Heusala <jheusala@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sendanor/jslabs/issues"
+  },
+  "homepage": "https://github.com/sendanor/jslabs"
+}
