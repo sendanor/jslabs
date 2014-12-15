@@ -66,8 +66,8 @@ function our_bind_2() {
 	return impls[args.length].apply(undefined, args);
 }
 
-/* Test it */
-console.log( Object.keys(people).map(our_bind(get_property_a, people)) );
+// Exports
+module.exports = our_bind_2;
 
-console.log( Object.keys(people).map(our_bind_2(get_property_a, people)) );
+/* EOF */
 

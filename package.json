@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/sendanor/jslabs/issues"
   },
+  "devDependencies": {
+    "nor-debug"    : ">= 0.1.46 < 0.2.0",
+    "mocha"        : "*"
+  },
+  "optionalDependencies": {
+    "lint"         : "*",
+    "jshint"       : "*",
+    "benchmark"    : "*",
+    "microtime"    : "*"
+  },
   "homepage": "https://github.com/sendanor/jslabs"
 }
