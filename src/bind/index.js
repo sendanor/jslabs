@@ -1,18 +1,5 @@
 
-/** Some test data */
-var people = [
-  {"name": "John"},
-  {"name": "Mark"},
-  {"name": "Lisa"},
-  {"name": "Bart"},
-  {"name": "Jack"},
-  {"name": "Maria"}
-];
-
-/** */
-function get_property_a(obj, key) {
-	return obj[key];
-}
+"use strict";
 
 /** Our implementation of bind() without support for `this` */
 function our_bind(f, arg1) {
@@ -61,9 +48,16 @@ var impls = [
 ];
 
 /** Our implementation of bind() without support for `this` */
-function our_bind_2() {
-	var args = Array.prototype.slice.call(arguments);
-	return impls[args.length].apply(undefined, args);
+function our_bind_2(f) {
+	return function our_bind_2_() {
+		var args = Array.prototype.slice.call(arguments);
+		var self = args.shift();
+		if(self !== undefined) {
+			throw new TypeError("We don't support this argument yet!");
+		}
+		args.unshift(f);
+		return impls[args.length].apply(self, args);
+	};
 }
 
 // Exports
