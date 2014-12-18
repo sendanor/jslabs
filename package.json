@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "node-lint src/ --config=lint.json",
     "jshint": "jshint src/"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "nor-debug"    : ">= 0.1.46 < 0.2.0",
+    "nor-data"    : ">= 0.0.15 < 0.1.0",
     "mocha"        : "*"
   },
   "optionalDependencies": {

@@ -146,61 +146,89 @@ var bind2_predefined = BIND2(get_property_a).bind(undefined, _input);
 var _tests = {
 
 	"mapping with .bind()": function(input) {
-		Object.keys(input).map(get_property_a.bind(undefined, input));
+		return function() {
+			Object.keys(input).map(get_property_a.bind(undefined, input));
+		};
 	},
 
 	"mapping with function reference": function(input) {
-		Object.keys(input).map(get_property_b(input));
+		return function() {
+			Object.keys(input).map(get_property_b(input));
+		};
 	},
 
 	"mapping with pre-defined .bind()": function(input) {
-		Object.keys(input).map(get_people_a);
+		return function() {
+			Object.keys(input).map(get_people_a);
+		};
 	},
 
 	"mapping with predefined function reference": function(input) {
-		Object.keys(input).map(get_people_b);
+		return function() {
+			Object.keys(input).map(get_people_b);
+		};
 	},
 
 	"mapping with inline functions": function(input) {
-		Object.keys(input).map(function(key) {
-			return input[key];
-		});
+		return function() {
+			Object.keys(input).map(function(key) {
+				return input[key];
+			});
+		};
 	},
 
 	"Custom bind implementation": function(input) {
-		Object.keys(input).map(our_bind(get_property_a, input));
+		return function() {
+			Object.keys(input).map(our_bind(get_property_a, input));
+		};
 	},
 
 	"Custom bind implementation with saved function": function(input) {
-		Object.keys(input).map(get_people_c);
+		return function() {
+			Object.keys(input).map(get_people_c);
+		};
 	},
 
 	"Another custom implementation": function(input) {
-		Object.keys(input).map(our_bind_2(get_property_a, input));
+		return function() {
+			Object.keys(input).map(our_bind_2(get_property_a, input));
+		};
 	},
 
 	"Another custom implementation with saved function": function(input) {
-		Object.keys(input).map(get_people_d);
+		return function() {
+			Object.keys(input).map(get_people_d);
+		};
 	},
 
 	"Mozilla.org Polyfill": function(input) {
-		Object.keys(input).map(mozilla_bind_polyfill(get_property_a).bind(undefined, input));
+		return function() {
+			Object.keys(input).map(mozilla_bind_polyfill(get_property_a).bind(undefined, input));
+		};
 	},
 
 	"Mozilla.org Polyfill2": function(input) {
-		Object.keys(input).map(mozilla_bind_polyfill2(get_property_a).bind(undefined, input));
+		return function() {
+			Object.keys(input).map(mozilla_bind_polyfill2(get_property_a).bind(undefined, input));
+		};
 	},
 
 	"Our 1st implementation": function(input) {
-		Object.keys(input).map(BIND(get_property_a)(undefined, input));
+		return function() {
+			Object.keys(input).map(BIND(get_property_a)(undefined, input));
+		};
 	},
 
 	"Our 2nd implementation": function(input) {
-		Object.keys(input).map(BIND2(get_property_a).bind(undefined, input));
+		return function() {
+			Object.keys(input).map(BIND2(get_property_a).bind(undefined, input));
+		};
 	},
 
 	"Our 2nd implementation (as predefined)": function(input) {
-		Object.keys(input).map( bind2_predefined );
+		return function() {
+			Object.keys(input).map( bind2_predefined );
+		};
 	},
 
 };
