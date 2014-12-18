@@ -1,15 +1,23 @@
 /** Benchmarks for different Array join implementations */
-
 "use strict";
+module.exports = function mapping_with_function(opts){
 
-module.exports = function(input) {
+	var input = opts.data;
 
-	function get_property(obj, key) {
-		return obj[key];
+	function Test() {
+		this.prefix = "na";
 	}
 
-	return function() {
-		Object.keys(input).map(get_property(input));
+	Test.prototype.get = function(key) {
+		var key_ = this.prefix + key;
+		return function(obj) {
+			return obj[key_];
+		};
 	};
 
+	var test = new Test();
+
+	return function mapping_with_function_(){
+		input.map(test.get("me"));
+	};
 };

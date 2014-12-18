@@ -9,19 +9,18 @@ module.exports = function(opts) {
 		this.prefix = "na";
 	}
 
-	Test.prototype.get = function(key) {
-		var key_ = this.prefix + key;
-		return function(obj) {
-			return obj[key_];
-		};
+	Test.prototype.get = function(key, obj) {
+		return obj[this.prefix + key];
 	};
 
 	var test = new Test();
 
-	var get_name = test.get("me");
-
 	return function() {
-		input.map(get_name);
+		input.map(function(obj) {
+			return test.get("me", obj);
+		});
 	};
 
 };
+
+/* EOF */

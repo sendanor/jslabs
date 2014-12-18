@@ -1,8 +1,7 @@
 /** Benchmark */
 "use strict";
-var core = require('src/lib/benchmarks/core.js');
-core.run({
+module.exports = {
 	"data": require('./input.json'),
-	"tests": core.getTests(__dirname)
-});
+	"tests": require('src/lib/benchmarks/core.js').getTests(__dirname)
+};
 /* EOF */
