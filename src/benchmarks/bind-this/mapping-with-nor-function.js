@@ -1,9 +1,9 @@
 /** Benchmarks for different Array join implementations */
 "use strict";
 
-var FUNCTION = require('nor-function');
-
 module.exports = function mapping_with_function(opts){
+
+	var FUNCTION = require('nor-function');
 
 	var input = opts.data;
 
